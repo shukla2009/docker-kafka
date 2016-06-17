@@ -12,7 +12,7 @@
 # Set the external host and port
 if [ ! -z "$ADVERTISED_LISTENERS" ]; then
     echo "advertised listeners: $ADVERTISED_LISTENERS"
-    sed -r -i "s/#(advertised.listeners)=(.*)/\1=PLAINTEXT:\/\/$ADVERTISED_LISTENERS/g" config/server.properties
+    sed -r -i "s/#(advertised.listeners)=(.*)/\1=PLAINTEXT:\/\/$ADVERTISED_LISTENERS/g" $KAFKA_HOME/config/server.properties
 fi
 
 # Set the zookeeper chroot
