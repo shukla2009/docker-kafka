@@ -19,13 +19,17 @@ Run
 ---
 
 ```bash
-docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_LISTENERS=$(hostname):9092 shukla2009/kafka
+docker run --name kafka \
+-p 2181:2181 \
+-p 9092:9092 \
+--env ADVERTISED_LISTENERS=$(hostname):9092\ 
+-d shukla2009/kafka
 ```
 
 ```bash
-kafka-console-producer.sh --broker-list $(hostname):9092 --topic test
+<KAFKA_HOME>\bin\kafka-console-producer.sh --broker-list $(hostname):9092 --topic test
 ```
 
 ```bash
-kafka-console-consumer.sh --zookeeper $(hostname):2181 --topic test
+<KAFKA_HOME>\bin\kafka-console-consumer.sh --zookeeper $(hostname):2181 --topic test
 ```
